@@ -51,6 +51,10 @@ function insuffare (CurBalStr) {
 		"Buy: <b>$" + BuyBal.toFixed(2) + "</b> (" + 
 		"incl. bonus: $" + Bonus(BuyBal,BonusThres,BonusPerc).toFixed(2) + ")<br>" + 
 		"New balance: $" + NewBal.toFixed(2) + " (" + NrRides + " rides) <br>")
+	
+document.write("<p>" +
+	"<small><i>(c) Copyright 2017 <a href=\"http://www.cns.nyu.edu/~tomvg\">Tom van Grootel</a>. All Rights Reserved. 2017-02-21</i></small>" + 
+	"</p>")
 
 	return BuyBal
 
