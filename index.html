@@ -2,18 +2,39 @@
 <html>
 <head>
 	<title>Insufficient Fare</title>
-	<script type="text/javascript" src="insuffare.js"></script>
+	<script type="text/javascript" src="insuffare.js" async></script>
 </head>
 <body>
 
 <h1>insufficient fare</h1>
 
-Current balance: <input id="CurBal" type="text" >
-<button onclick="insuffare(CurBal.value)">Calc</button>
+<div id="input">
+	<p>
+		Current balance: <input id="CurBal" type="text" onchange="insuffare(CurBal.value)">
+	</p>
+</div>
 
-<!-- type 'c)<tab> isoD<tab>' to add following line -->
-<p>
-	<small><i>(c) Copyright 2017 <a href="http://www.cns.nyu.edu/~tomvg">Tom van Grootel</a>. All Rights Reserved. 2017-02-21</i></small>
-</p>
+
+
+
+<div id="output">
+	<p id="PageTarget">
+		&nbsp;
+	</p>
+</div>
+
+
+
+
+<div id="footer">
+	<p>
+		<!-- type 'c)<tab> isoD<tab>' to add following line -->
+		<small><i>(c) Copyright 2017 <a href="http://www.cns.nyu.edu/~tomvg">Tom van Grootel</a>. All Rights Reserved. 2017-02-22</i></small>
+	</p>
+</div>
+
+
+
+
 </body>
 </html>

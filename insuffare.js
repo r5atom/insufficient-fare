@@ -10,6 +10,8 @@ function insuffare (CurBalStr) {
 	var UseBonus = true
 
 	var Silent = false
+	
+	var pageTar = document.getElementById("PageTarget") // id where to write the results
 
 	// function to calculate bonus
 	function Bonus(x,thres,perc) {
@@ -47,15 +49,13 @@ function insuffare (CurBalStr) {
 	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
 	var NrRides = NewBal/SingleFare[0]
 
-	document.write("On Card: $" + CurBal.toFixed(2) + "<br>" +
-		"Buy: <b>$" + BuyBal.toFixed(2) + "</b> (" + 
-		"incl. bonus: $" + Bonus(BuyBal,BonusThres,BonusPerc).toFixed(2) + ")<br>" + 
-		"New balance: $" + NewBal.toFixed(2) + " (" + NrRides + " rides) <br>")
-	
-document.write("<p>" +
-	"<small><i>(c) Copyright 2017 <a href=\"http://www.cns.nyu.edu/~tomvg\">Tom van Grootel</a>. All Rights Reserved. 2017-02-21</i></small>" + 
-	"</p>")
+	pageTar.innerHTML = "On Card: $" + CurBal.toFixed(2) + "<br>" +
+		"Buy: <b>$" + BuyBal.toFixed(2) + "</b> (" +
+		"incl. bonus: $" + Bonus(BuyBal,BonusThres,BonusPerc).toFixed(2) + ")<br>" +
+		"New balance: $" + NewBal.toFixed(2) + " (" + NrRides + " rides) <br>"
 
 	return BuyBal
 
+	//type 'c)<tab> isoD<tab>' to add following line
+	//(c) Copyright 2017 Tom van Grootel</a>. All Rights Reserved. 2017-02-22
 }
