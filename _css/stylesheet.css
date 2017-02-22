@@ -1,0 +1,86 @@
+h1 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 2em;
+	text-align: center;
+}
+
+h2 {
+	font-family: Helvetica, Arial, sans-serif;
+	background-color:#93C4DE;
+	letter-spacing: 5px;
+	font-size: 1.8em;
+	border-radius: 15px;
+	text-align: center;
+	padding: 15px;
+}
+
+h3 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1.5em;
+}
+
+h4 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: normal;
+	line-height: normal;
+	margin-top: 1em;
+	margin-bottom: 0em;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	text-align: justify;
+	background-image: url("../_images/vending-machine.png");
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 670px;
+	background-color: #6B6B6B;
+}
+
+a {
+    text-decoration: none;
+	font-weight: bold;
+}
+
+a:link {
+    color: #6B6B6B;
+}
+
+a:visited {
+    color: #6B6B6B;
+}
+
+a:hover {
+    color: #000000;
+}
+
+a:active {
+    color: #000000;
+}
+
+div {
+    margin: auto;
+    width: 600px;
+    padding: 15px;
+    border: 10px solid #6B6B6B;
+	border-radius: 15px;
+	background-color: rgba(255,255,255, .8);
+}
+
+body > p {
+	/*this is the top level. Outside of div*/
+	color: white;
+	text-align: center;
+	
+}
+
+
+
+/* 
+NYU purple #593283 
+CNS blue  #93C4DE 
+CNS blue 80% #769DB2
+Grey #6B6B6B (mean of CNS blue)
+*/
