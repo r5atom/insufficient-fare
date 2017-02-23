@@ -47,12 +47,14 @@ function insuffare (CurBalStr) {
 
 	// report back
 	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
-	var NrRides = NewBal/SingleFare[0]
+	var NrRides = Math.round(NewBal/SingleFare[0])
+	RsdBal = NewBal - (NrRides * SingleFare[0])
 
 	pageTar.innerHTML = "On Card: $" + CurBal.toFixed(2) + "<br>" +
 		"Buy: <b>$" + BuyBal.toFixed(2) + "</b> (" +
 		"incl. bonus: $" + Bonus(BuyBal,BonusThres,BonusPerc).toFixed(2) + ")<br>" +
 		"New balance: $" + NewBal.toFixed(2) + " (" + NrRides + " rides) <br>"
+		"Residual balance: $" + RsdBal.toFixed(2) + "<br>"
 
 	return BuyBal
 

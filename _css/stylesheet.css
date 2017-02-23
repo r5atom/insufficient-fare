@@ -34,7 +34,7 @@ body {
 	text-align: justify;
 	background-image: url("../_images/vending-machine.png");
 	background-repeat: no-repeat;
-	background-position: center top;
+	background-position: left top;
 	background-size: 670px;
 	background-color: #6B6B6B;
 }
@@ -76,6 +76,29 @@ body > p {
 	
 }
 
+#input {
+	position: absolute;
+	top: 300px;
+	left: 54px;
+	width: 250px;
+	height: 100px;
+	padding: 10px;
+	border: 1px;
+	background-color: rgba(255,255,255, .5);
+	
+}
+#output {
+	position: absolute;
+	top: 450px;
+	left: 54px;
+	width: 250px;
+	height: 100px;
+	padding: 10px;
+	padding: 10px;
+	border: 1px;
+	background-color: rgba(255,255,255, .5);
+	color: white;
+}
 
 
 /* 
