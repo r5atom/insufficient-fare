@@ -53,8 +53,8 @@ function insuffare (CurBalStr) {
 	pageTar.innerHTML = "On Card: $" + CurBal.toFixed(2) + "<br>" +
 		"Buy: <b>$" + BuyBal.toFixed(2) + "</b> (" +
 		"incl. bonus: $" + Bonus(BuyBal,BonusThres,BonusPerc).toFixed(2) + ")<br>" +
-		"New balance: $" + NewBal.toFixed(2) + " (" + NrRides + " rides) <br>"
-		"Residual balance: $" + RsdBal.toFixed(2) + "<br>"
+		"New balance: $" + NewBal.toFixed(2) + " (" + NrRides + " rides) <br>" + 
+		"Residual balance: $" + RsdBal.toFixed(2) + "  <br>"
 
 	return BuyBal
 
