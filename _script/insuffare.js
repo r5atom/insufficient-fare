@@ -11,6 +11,8 @@ function insuffare (CurBalStr) {
 
 	var Silent = false
 	
+	var FixRounding = true
+	
 	var pageTar = document.getElementById("PageTarget") // id where to write the results
 
 	// function to calculate bonus
@@ -48,7 +50,37 @@ function insuffare (CurBalStr) {
 	// report back
 	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
 	var NrRides = Math.round(NewBal/SingleFare[0])
-	RsdBal = NewBal - (NrRides * SingleFare[0])
+	var RsdBal = NewBal % SingleFare[0]
+	
+	// fix rounding issue in loop by adding 5cts
+	NoRsd = RsdBal == 0
+	BuyBalTemp = BuyBal
+	BuyBalFinal = BuyBal
+	c=0
+	while (!NoRsd && FixRounding) {
+		c+=1
+		// increment buybal with 5ct
+		BuyBalTemp += BuyUnit
+		// residual balance after increment
+		RsdBalTemp = (CurBal + Math.round(Bonus(BuyBalTemp,BonusThres,BonusPerc)*100)/100) % SingleFare[0]
+		// check if residual balance is zero
+		if (RsdBalTemp < 0.005) {
+			BuyBalFinal = BuyBalTemp
+			NoRsd = true
+		}
+		
+		if (c>1000) {
+			NoRsd = true
+			console.log("Hit inf loop protection!")
+		}
+	}
+	BuyBal = BuyBalFinal
+	
+	// finalize
+	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
+	NrRides = Math.round(NewBal/SingleFare[0])
+	RsdBal = NewBal % SingleFare[0]
+	
 
 	pageTar.innerHTML = "On Card: $" + CurBal.toFixed(2) + "<br>" +
 		"Buy: <b>$" + BuyBal.toFixed(2) + "</b> (" +
