@@ -80,11 +80,11 @@ body > p {
 	position: absolute;
 	top: 300px;
 	left: 54px;
-	width: 250px;
+	width: 270px;
 	height: 100px;
-	padding: 10px;
-	border: 1px;
-	background-color: rgba(255,255,255, .5);
+	padding: 0px;
+	border: 0px;
+	background-color: rgba(255,255,255, .0);
 	
 }
 #output {
@@ -94,12 +94,35 @@ body > p {
 	width: 250px;
 	height: 100px;
 	padding: 10px;
-	padding: 10px;
 	border: 1px;
-	background-color: rgba(255,255,255, .5);
+	background-color: rgba(255,255,255, .0);
 	color: white;
 }
 
+#button-calc {
+	float:left;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	padding: 0px;
+	width: 70px;
+}
+
+#curbal {
+	height:60px;
+	width: 200px;
+	padding: 0px;
+	margin: 0px;
+	background-color: black;
+	border-style: none none solid none;
+	border-width: 5px;
+}
+
+.large-text {
+	color: white;
+	font-size: 30pt;
+	font-family: Helvetica;
+}
 
 /* 
 NYU purple #593283 

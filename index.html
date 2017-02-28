@@ -8,9 +8,11 @@
 <body>
 
 <div id="input">
+	<img src="_images/title-current-bal.png" width=100%>
+	<input id="button-calc" src="_images/button-calc.png" type="image" onclick="insuffare(curbal.value)">
 	<p>
-		Current balance:</br> <input id="CurBal" type="text" onchange="insuffare(CurBal.value)"><input src="_images/button-calc.png" type="image" onclick="insuffare(CurBal.value)" width=33%>
-		
+		<label for="curbal" class="large-text">$</label>
+		<input id="curbal" class="large-text" type="text" onchange="insuffare(curbal.value)">
 	</p>
 </div>
 
