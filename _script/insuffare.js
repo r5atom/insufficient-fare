@@ -91,5 +91,5 @@ function insuffare (CurBalStr) {
 	return BuyBal
 
 	//type 'c)<tab> isoD<tab>' to add following line
-	//(c) Copyright 2017 Tom van Grootel</a>. All Rights Reserved. 2017-02-22
+	//(c) Copyright 2017 Tom van Grootel. All Rights Reserved. 2017-02-28
 }
