@@ -42,12 +42,11 @@ function insuffare (CurBalStr) {
 	// apply inverse bonus function to calculate the amount before bonus
 	var BuyBal = Math.ceil(Math.round(BonusInv(BalDif,BonusThres,BonusPerc)*100)/100/BuyUnit)*BuyUnit
 
-
 	// report back
 	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
 	var NrRides = Math.round(NewBal/SingleFare)
 	var RsdBal = NewBal % SingleFare
-	
+
 	// fix rounding issue in loop by adding 5cts
 	NoRsd = RsdBal == 0
 	BuyBalTemp = BuyBal
@@ -59,8 +58,9 @@ function insuffare (CurBalStr) {
 		BuyBalTemp += BuyUnit
 		// residual balance after increment
 		RsdBalTemp = (CurBal + Math.round(Bonus(BuyBalTemp,BonusThres,BonusPerc)*100)/100) % SingleFare
+		
 		// check if residual balance is zero
-		if (RsdBalTemp < 0.005) {
+		if (Math.abs(RsdBalTemp) < 0.005 || Math.abs(RsdBalTemp-SingleFare) < 0.005 ) {
 			BuyBalFinal = BuyBalTemp
 			NoRsd = true
 		}
@@ -75,7 +75,7 @@ function insuffare (CurBalStr) {
 	// finalize
 	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
 	NrRides = Math.round(NewBal/SingleFare)
-	RsdBal = NewBal % SingleFare
+	RsdBal = NewBal - (NrRides * SingleFare)
 	
 
 	pageTar.innerHTML = "On Card: $" + CurBal.toFixed(2) + "<br>" +
