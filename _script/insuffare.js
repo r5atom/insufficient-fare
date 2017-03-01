@@ -2,7 +2,8 @@ function insuffare (CurBalStr) {
 
 	var CurBal = Number(CurBalStr)
 	
-	var SingleFare = [ 2.75 , 1.35 ]
+	var SingleFare = 2.75
+	//var SingleFare = 1.35
 	var BonusThres = 5.5
 	var BonusPerc = 1.11
 	var BuyUnit = 0.05
@@ -33,25 +34,19 @@ function insuffare (CurBalStr) {
 	}
 
 	// add balance to integer single fare
-	var AddBal = [ 
-		SingleFare[0] - NewBal % SingleFare[0] ,
-		SingleFare[1] - NewBal % SingleFare[1]
-	]
-
-	NewBal += AddBal[0]
-	// TODO: reduced fare
+	var AddBal = SingleFare - NewBal % SingleFare
+	NewBal += AddBal
 
 	// see how much needs to be added
 	var BalDif = NewBal - CurBal
 	// apply inverse bonus function to calculate the amount before bonus
 	var BuyBal = Math.ceil(Math.round(BonusInv(BalDif,BonusThres,BonusPerc)*100)/100/BuyUnit)*BuyUnit
 
-
 	// report back
 	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
-	var NrRides = Math.round(NewBal/SingleFare[0])
-	var RsdBal = NewBal % SingleFare[0]
-	
+	var NrRides = Math.round(NewBal/SingleFare)
+	var RsdBal = NewBal % SingleFare
+
 	// fix rounding issue in loop by adding 5cts
 	NoRsd = RsdBal == 0
 	BuyBalTemp = BuyBal
@@ -62,9 +57,10 @@ function insuffare (CurBalStr) {
 		// increment buybal with 5ct
 		BuyBalTemp += BuyUnit
 		// residual balance after increment
-		RsdBalTemp = (CurBal + Math.round(Bonus(BuyBalTemp,BonusThres,BonusPerc)*100)/100) % SingleFare[0]
+		RsdBalTemp = (CurBal + Math.round(Bonus(BuyBalTemp,BonusThres,BonusPerc)*100)/100) % SingleFare
+		
 		// check if residual balance is zero
-		if (RsdBalTemp < 0.005) {
+		if (Math.abs(RsdBalTemp) < 0.005 || Math.abs(RsdBalTemp-SingleFare) < 0.005 ) {
 			BuyBalFinal = BuyBalTemp
 			NoRsd = true
 		}
@@ -78,8 +74,8 @@ function insuffare (CurBalStr) {
 	
 	// finalize
 	NewBal = CurBal + Math.round(Bonus(BuyBal,BonusThres,BonusPerc)*100)/100
-	NrRides = Math.round(NewBal/SingleFare[0])
-	RsdBal = NewBal % SingleFare[0]
+	NrRides = Math.round(NewBal/SingleFare)
+	RsdBal = NewBal - (NrRides * SingleFare)
 	
 
 	pageTar.innerHTML = "On Card: $" + CurBal.toFixed(2) + "<br>" +
