@@ -5,12 +5,12 @@ function insuffare (CurBalStr) {
 	var SingleFare = 2.75
 	//var SingleFare = 1.35
 	var BonusThres = 5.5
-	var BonusPerc = 1.11
+	var BonusPerc = 1.05
 	var BuyUnit = 0.05
 
 	var UseBonus = true
 
-	var Silent = false
+	var Silent = true
 	
 	var FixRounding = true
 	
