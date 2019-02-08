@@ -31,7 +31,7 @@ h4 {
 body {
 	font-family: Helvetica, Arial, sans-serif;
 	text-align: justify;
-	background-image: url("../_images/vending-machine.png");
+	background-image: url("https://raw.githubusercontent.com/r5atom/insufficient-fare/master/_images/vending-machine.png");
 	background-repeat: no-repeat;
 	background-position: left top;
 	background-size: 1000px;
